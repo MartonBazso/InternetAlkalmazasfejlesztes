@@ -18,7 +18,7 @@
         <c:when test="${pageContext.request.method eq 'POST'}">
             
             
-        <%-- UserID-t még el kell tárolni, legjobb lenne sessionbe kiszedni, hogy ne kelljen sql --%>
+        <%-- UserID-t még el kell tárolni, legjobb lenne sessionbe kiszedni, hogy ne kelljen sql--%>
         <sql:update var="eredmeny" dataSource="${hirdetes}">
             INSERT INTO news (category, content, userid) VALUES ('${param.category}', '${param.content}','USERID')
         </sql:update>
