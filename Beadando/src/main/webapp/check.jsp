@@ -15,15 +15,16 @@
     </head>
     <body>
     <sql:query var="lekerdezes" dataSource="${hirdetes}">
-        SELECT * FROM users where userid='${param.userid}' and password='${param.password}'
+        SELECT * FROM Users where UserName='${param.username}' and Password='${param.password}'
     </sql:query>
-
-    <c:choose>
+        
+   <c:choose>
         <c:when test="${lekerdezes.rowCount ne 0}">
+            <c:set var = "user" scope = "application" value = "${lekerdezes.rows[0]}"/>
             <jsp:forward page="blog.jsp"/>
         </c:when>
         <c:otherwise>
-            <jsp:forward page="login.jsp">
+            <jsp:forward page="index.jsp">
                 <jsp:param name="errormsg" value="Hibás jelszó/vagy felhasználói név"/>
             </jsp:forward>
         </c:otherwise>

@@ -16,16 +16,63 @@
     <body>
         <h1>Üdvözlünk a főoldalon!</h1>
         <a href="addnew.jsp">Adj fel új hirdetést!</a>
-        
-        
+
+
         <sql:query var="lekerdezes" dataSource="${hirdetes}">
-        SELECT * FROM news
+            SELECT * FROM ADVERTISEMENTS
         </sql:query>
-        
-        
-        
-        
-        
-        
+
+        <table>
+            <tr>
+                <th>
+                    Cím
+                </th>
+                <th>
+                    Tartalom
+                </th>
+                <th>
+                    Hozzáadva
+                </th>
+                <th>
+                    Akciók
+                </th>
+
+            </tr>
+            <c:forEach var="blog" items="${lekerdezes.rows}">
+
+                <tr>
+                    <td><h1><c:out value="${blog.title}" /></h1></td>
+
+                    <td><h4><c:out value="${blog.content}" /></h4></td>
+
+                    <td><c:out value="${blog.addedAt}" /> </td>
+
+                    <td> 
+                        <c:if test="${(blog.addedBy eq user.userId) || (user.role eq 'admin')}">
+                            <p>
+                                <a href='edit.jsp?id=${blog.AdId}'>
+                                    <button>Szerkesztés</button>
+                                </a>
+                            </p>
+                        </c:if>
+                        <c:if test="${(blog.addedBy eq user.userId) || (user.role eq 'admin')}">
+                            <p>
+                                <a href='delete.jsp?id=${blog.AdId}'>
+                                    <button>Törlés</button>
+                                </a>
+                            </p>
+                        </c:if>
+                    </td>
+
+
+                </tr>
+
+            </c:forEach>
+
+        </table>
+
+
+        <a href="logout.jsp">Kijelentkezés</a>
+
     </body>
 </html>

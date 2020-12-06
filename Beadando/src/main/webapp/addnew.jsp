@@ -5,6 +5,7 @@
     Created on : 2020. dec. 6., 0:49:23
     Author     : Boroka
 --%>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,9 +19,8 @@
         <c:when test="${pageContext.request.method eq 'POST'}">
             
             
-        <%-- UserID-t még el kell tárolni, legjobb lenne sessionbe kiszedni, hogy ne kelljen sql--%>
         <sql:update var="eredmeny" dataSource="${hirdetes}">
-            INSERT INTO news (category, content, userid) VALUES ('${param.category}', '${param.content}','USERID')
+            INSERT INTO Advertisements (Title, Content, AddedBy) VALUES ('${param.title}', '${param.content}', ${user.userId})
         </sql:update>
             
             
@@ -33,12 +33,7 @@
                   <tr>
                     <td>Téma:</td>
                     <td>
-                      <select name="category">
-                        <option>autó</option>
-                        <option>háztartási eszköz</option>
-                        <option>ingatlan</option>
-                        <option>egyéb</option>
-                      </select>
+                        <input type="text" name="title">
                     </td>
                   </tr>
                   <tr>
