@@ -21,7 +21,7 @@
             </sql:query>
         </c:if>  
         <c:choose>
-            <c:when test="${param.content ne null && param.title ne null && (lekerdezes.rows[0].addedBy eq user.userId) || (user.role eq 'admin')}">
+            <c:when test="${param.content ne null && param.title ne null && ((lekerdezes.rows[0].addedBy eq user.userId) || (user.role eq 'admin'))}">
 
 
                 <sql:update var="eredmeny" dataSource="${hirdetes}">
