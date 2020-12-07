@@ -11,10 +11,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>Hirdetés szerkesztése</title>
     </head>
-    <body bgcolor="white">
-        <h1>Szerkessze az alábbi hirdetést!</h1>
+    <body >
+        <div class = "stilusform"  ><h1>Szerkessze az alábbi hirdetést!</h1>
         <c:if test="${param.id ne null}">            
             <sql:query var="lekerdezes" dataSource="${hirdetes}">
                 SELECT * FROM Advertisements WHERE AdId = ${param.id}
@@ -36,9 +37,9 @@
             <c:otherwise>
                 <form action="edit.jsp" method="post">
                     <input name='id' value="${param.id}" hidden>
-                    <table>
-                        <tr>
-                            <td>Téma:</td>
+                    <table >
+                        <tr > 
+                            <td >Téma:</td>
                             <td>
                                 <input type="text" name="title" value='${lekerdezes.rows[0].title}'>
                             </td>
@@ -53,16 +54,16 @@
                                 <input type="submit" value="Hirdetés szerkesztése">
                             </td>
                             <td>          
-                                <a href="blog.jsp">Vissza a főoldalra</a>
+                                <a href="blog.jsp"> <button>Vissza a főoldalra</button></a>
                             </td>
                         </tr>
                     </table>
 
-                </form>
+                </form> 
             </c:otherwise>
         </c:choose>
 
 
-
+</div>
     </body>
 </html>

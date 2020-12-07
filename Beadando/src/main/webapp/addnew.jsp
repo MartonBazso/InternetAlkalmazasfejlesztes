@@ -11,10 +11,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link rel="stylesheet" href="style.css">
     <title>Új hirdetés</title>
   </head>
-  <body bgcolor="white">
-      <h1>Adjon hozzá új hirdetést!</h1>
+  <body >
+      <div class = "stilusform"  >      <h1>Adjon hozzá új hirdetést!</h1>
       <c:choose>
         <c:when test="${pageContext.request.method eq 'POST'}">
             
@@ -46,7 +47,7 @@
                        <input type="submit" value="Hirdetés feladása">
                     </td>
                     <td>          
-                       <a href="blog.jsp">Vissza a főoldalra</a>
+                       <a href="blog.jsp"><button>Vissza a főoldalra</button></a>
                     </td>
                   </tr>
                 </table>
@@ -54,5 +55,6 @@
               </form>
         </c:otherwise>
    </c:choose>
+            </div>
   </body>
 </html>

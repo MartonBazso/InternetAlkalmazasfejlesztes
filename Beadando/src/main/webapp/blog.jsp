@@ -10,12 +10,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Főoldal</title>
     </head>
     <body>
+       
         <h1>Üdvözlünk a főoldalon!</h1>
-        <a href="addnew.jsp">Adj fel új hirdetést!</a>
+        <a href="addnew.jsp"> <button> Adj fel új hirdetést! </button> </a>
 
 
         <sql:query var="lekerdezes" dataSource="${hirdetes}">
@@ -23,7 +25,7 @@
         </sql:query>
 
         <table>
-            <tr>
+            <tr >
                 <th>
                     Cím
                 </th>
@@ -72,7 +74,7 @@
         </table>
 
 
-        <a href="logout.jsp">Kijelentkezés</a>
+        <a href="logout.jsp"> <button>Kijelentkezés </button></a>
 
     </body>
 </html>

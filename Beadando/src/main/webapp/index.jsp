@@ -11,6 +11,7 @@
 
 <html>
     <head>
+        <link rel="stylesheet" href="style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Belépés</title>
     </head>
@@ -23,21 +24,23 @@
             user="valami"
             password="valami"
             />
-        
-        <h1>Üdvözöljük! A belépéshez kérjük adja meg adatait!</h1>
-        <c:if test="${!empty param.errormsg}">
-            <font color="red">${errormsg}</font>
-        </c:if>
 
-        <form action="check.jsp" method="POST">
-            <p>Felhasználó név:</p> <input type="text" name="username" value="" size="15" />
-            <p>Jelszó:</p> <input type="password" name="password" value="" size="15" />
-            <input type="submit" value="Bejelentkezés" />
-        </form>
-      
-        <a href="registration.jsp">Regisztráció</a>
-        <c:if test="${!empty felhasznalok}">
-            <font color="red">${felhasználok}</font>
-        </c:if>
+        <div class = "stilusform"  > Üdvözöljük! A belépéshez kérjük adja meg adatait!
+            
+            <c:if test="${!empty param.errormsg}">
+                <font color="red">${errormsg}</font>
+            </c:if>
+
+            <form action="check.jsp" method="POST">
+                <p>Felhasználó név:</p> <input type="text" name="username" value="" size="15" />
+                <p>Jelszó:</p> <input type="password" name="password" value="" size="15" /> <br>
+                <button type="submit" > Bejelentkezés </button>
+            </form>
+
+                <a href= "registration.jsp"> <button> Regisztráció </button></a>
+            <c:if test="${!empty felhasznalok}">
+                <font color="red">${felhasználok}</font>
+            </c:if>
+        </div>
     </body>
 </html>
